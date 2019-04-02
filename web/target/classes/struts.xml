@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+    <package name="ERP" extends="struts-default" namespace="/">
+
+
+        <!--部门-->
+        <action name="dep_*" class="DepAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list</allowed-methods>
+
+        </action>
+
+        <!--员工-->
+        <action name="emp_*" class="EmpAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,
+                update,list,updatePassword,updatePwd_reset</allowed-methods>
+
+        </action>
+
+        <!--商品-->
+        <action name="goods_*" class="GoodsAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list,getAddList</allowed-methods>
+
+        </action>
+
+        <!--商品类型-->
+        <action name="goodstype_*" class="GoodsTypeAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list</allowed-methods>
+
+        </action>
+
+        <!--菜单-->
+        <action name="menu_*" class="MenuAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list,getMenuTrees</allowed-methods>
+
+        </action>
+
+        <!--登录-->
+        <action name="loginAction_*" class="LoginAction" method="{1}">
+            <allowed-methods>checkUser,showName,loginOut</allowed-methods>
+        </action>
+
+        <!--供应商-->
+        <action name="supplier_*" class="SupplierAction" method="{1}">
+
+            <allowed-methods>
+                get,getList,add,del,update,list,export,doImport
+            </allowed-methods>
+
+        </action>
+
+        <!--采购订单-->
+        <action name="orders_*" class="OrdersAction" method="{1}">
+
+            <allowed-methods>
+
+                get,getList,add,del,update,list,getAddList,doCheck,
+                doStart,myListByPage,quitCreate,export
+
+            </allowed-methods>
+
+        </action>
+
+        <!--商品仓库-->
+        <action name="store_*" class="StoreAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list,getAddList</allowed-methods>
+
+        </action>
+
+        <!--订单明细-->
+        <action name="orderdetail_*" class="OrderdetailAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list,doInStore,
+                doOutStore
+            </allowed-methods>
+
+        </action>
+
+        <!--仓库明细-->
+        <action name="storedetail_*" class="StoredetailAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list
+            </allowed-methods>
+
+        </action>
+
+        <!--库存变更记录-->
+        <action name="storeoper_*" class="StoreoperAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list</allowed-methods>
+
+        </action>
+
+        <!--退货订单-->
+        <action name="returnorders_*" class="ReturnordersAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list,quitCreate,
+                myListByPage,quitCheck
+
+            </allowed-methods>
+
+        </action>
+
+        <!--退货订单明细-->
+        <action name="returnorderdetail_*" class="ReturnorderdetailAction" method="{1}">
+
+            <allowed-methods>get,getList,add,del,update,list,
+                quitOutStore
+            </allowed-methods>
+
+        </action>
+
+        <!--盘盈盘亏-->
+        <action name="inventory_*" class="InventoryAction" method="{1}">
+
+            <allowed-methods>
+
+                get,getList,add,del,update,list,myListByPage,doCheck
+
+            </allowed-methods>
+
+        </action>
+
+        <!--统计报表-->
+        <action name="report_*" class="ReportAction" method="{1}">
+
+            <allowed-methods>
+
+                ordersReport,getSumMoney
+
+            </allowed-methods>
+
+        </action>
+
+    </package>
+</struts>

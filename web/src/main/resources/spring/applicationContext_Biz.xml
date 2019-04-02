@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 部门bean -->
+    <bean id="DepBiz" class="com.zf.erp.Biz.Impl.DepBiz">
+        <property name="depDao" ref="DepDao"/>
+    </bean>
+
+    <!--员工bean-->
+    <bean id="EmpBiz" class="com.zf.erp.Biz.Impl.EmpBiz">
+        <property name="iEmpDao" ref="EmpDao"/>
+    </bean>
+
+    <!--商品bean-->
+    <bean id="GoodsBiz" class="com.zf.erp.Biz.Impl.GoodsBiz">
+        <property name="iGoodsDao" ref="GoodsDao"/>
+    </bean>
+
+    <!--商品类型bean-->
+    <bean id="GoodsTypeBiz" class="com.zf.erp.Biz.Impl.GoodsTypeBiz">
+        <property name="iGoodsTypeDao" ref="GoodsTypeDao"/>
+    </bean>
+
+    <!--菜单bean-->
+    <bean id="MenuBiz" class="com.zf.erp.Biz.Impl.MenuBiz">
+        <property name="iMenuDao" ref="MenuDao"/>
+    </bean>
+
+    <!--供应商bean-->
+    <bean id="SupplierBiz" class="com.zf.erp.Biz.Impl.SupplierBiz">
+        <property name="iSupplierDao" ref="SupplierDao"/>
+    </bean>
+
+    <!--订单bean-->
+    <bean id="OrdersBiz" class="com.zf.erp.Biz.Impl.OrdersBiz">
+        <property name="iOrdersDao" ref="OrdersDao"/>
+        <property name="IEmpDao" ref="EmpDao"/>
+        <property name="ISupplierDao" ref="SupplierDao"/>
+    </bean>
+
+    <!--商品仓库bean-->
+    <bean id="StoreBiz" class="com.zf.erp.Biz.Impl.StoreBiz">
+        <property name="iStoreDao" ref="StoreDao"/>
+    </bean>
+
+    <!--订单明细bean-->
+    <bean id="OrderdetailBiz" class="com.zf.erp.Biz.Impl.OrderdetailBiz">
+        <property name="iOrderdetailDao" ref="OrderdetailDao"/>
+        <property name="IStoredetailDao" ref="StoredetailDao"/>
+        <property name="IStoreoperDao" ref="StoreoperDao"/>
+    </bean>
+
+    <!--仓库明细bean-->
+    <bean id="StoredetailBiz" class="com.zf.erp.Biz.Impl.StoredetailBiz">
+        <property name="iStoredetailDao" ref="StoredetailDao"/>
+        <property name="IGoodsDao" ref="GoodsDao"/>
+        <property name="IStoreDao" ref="StoreDao"/>
+    </bean>
+
+    <!--库存变更记录bean-->
+    <bean id="StoreoperBiz" class="com.zf.erp.Biz.Impl.StoreoperBiz">
+        <property name="iStoreoperDao" ref="StoreoperDao"/>
+        <property name="IStoreDao" ref="StoreDao"/>
+        <property name="IGoodsDao" ref="GoodsDao"/>
+        <property name="IEmpDao" ref="EmpDao"/>
+    </bean>
+
+    <!--退货订单bean-->
+    <bean id="ReturnordersBiz" class="com.zf.erp.Biz.Impl.ReturnordersBiz">
+        <property name="iReturnordersDao" ref="ReturnordersDao"/>
+        <property name="ISupplierDao" ref="SupplierDao"/>
+        <property name="IEmpDao" ref="EmpDao"/>
+    </bean>
+
+    <!--退货订单明细bean-->
+    <bean id="ReturnorderdetailBiz" class="com.zf.erp.Biz.Impl.ReturnorderdetailBiz">
+        <property name="iReturnordertailDao" ref="ReturnorderdetailDao"/>
+        <property name="IStoredetailDao" ref="StoredetailDao"/>
+        <property name="IStoreoperDao" ref="StoreoperDao"/>
+    </bean>
+
+    <!--盘盈盘亏bean-->
+    <bean id="InventoryBiz" class="com.zf.erp.Biz.Impl.InventoryBiz">
+        <property name="iInventoryDao" ref="InventoryDao"/>
+        <property name="IGoodsDao" ref="GoodsDao"/>
+        <property name="IEmpDao" ref="EmpDao"/>
+        <property name="IStoreDao" ref="StoreDao"/>
+    </bean>
+
+    <!--统计报表bean-->
+    <bean id="ReportBiz" class="com.zf.erp.Biz.Impl.ReportBiz">
+        <property name="iReportDao" ref="ReportDao"/>
+    </bean>
+
+    <import resource="applicationContext_dao.xml"/>
+</beans>

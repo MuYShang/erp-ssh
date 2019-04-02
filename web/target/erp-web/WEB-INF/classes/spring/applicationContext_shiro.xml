@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login.html" />
+		<property name="unauthorizedUrl" value="/error.html" />
+		<property name="filterChainDefinitions">
+			<value>
+				/login_* = anon
+				/error.html = anon
+				/*.html = authc
+			</value>
+		</property>
+	</bean>
+
+	<!--安全管理器-->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="erpRealm"/>
+	</bean>
+
+	<bean id="erpRealm" class="com.zf.erp.realm.erpRealm">
+		<property name="iEmpBiz" ref="EmpBiz"/>
+	</bean>
+
+
+</beans>

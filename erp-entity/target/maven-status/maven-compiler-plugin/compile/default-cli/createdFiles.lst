@@ -1,0 +1,15 @@
+com\zf\erp\domain\Orders.class
+com\zf\erp\domain\Dep.class
+com\zf\erp\domain\Menu.class
+com\zf\erp\domain\Supplier.class
+com\zf\erp\domain\Inventory.class
+com\zf\erp\domain\Goodstype.class
+com\zf\erp\domain\Goods.class
+com\zf\erp\domain\Storedetail.class
+com\zf\erp\domain\Emp.class
+com\zf\erp\domain\Storeoper.class
+com\zf\erp\domain\Orderdetail.class
+com\zf\erp\domain\Returnorders.class
+com\zf\erp\domain\Role.class
+com\zf\erp\domain\Store.class
+com\zf\erp\domain\Returnorderdetail.class

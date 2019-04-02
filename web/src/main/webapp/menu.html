@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>菜单管理</title>
+<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+<script type="text/javascript" src="js/crud.js"></script>
+<script type="text/javascript">
+	var name="menu";
+	var columns=[[
+	  		    {field:'menuid',title:'菜单ID',width:100},
+	  		    {field:'menuname',title:'菜单名称',width:100},
+	  		    {field:'icon',title:'图标',width:100},
+	  		    {field:'url',title:'URL',width:100},
+	  		    {field:'pid',title:'上级菜单ID',width:100},
+
+				{field:'-',title:'操作',width:200,formatter: function(value,row,index){
+					var oper = "<a href=\"javascript:void(0)\" onclick=\"medit(" + row.menuid + ')">修改</a>';
+					oper += ' <a href="javascript:void(0)" onclick="mdel(' + row.menuid + ')">删除</a>';
+					return oper;
+				}}
+				]];
+    /**
+     * 删除
+     */
+    function mdel(uuid){
+        $.messager.confirm("确认","确认要删除吗？",function(yes){
+            if(yes){
+                $.ajax({
+                    url: name + '_del?menuid=' + uuid,
+                    dataType: 'json',
+                    type: 'post',
+                    success:function(rtn){
+                        $.messager.alert("提示",rtn.message,'info',function(){
+                            //刷新表格数据
+                            $('#grid').datagrid('reload');
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     * 修改
+     */
+    function medit(uuid){
+        //弹出窗口
+        $('#editDlg').dialog('open');
+
+        //清空表单内容
+        $('#editForm').form('clear');
+
+        //设置保存按钮提交的方法为update
+        method = "update";
+
+        //加载数据
+        $('#editForm').form('load',name + '_get?menuid=' + uuid);
+    }
+
+</script>
+</head>
+<body>
+<div class="easyui-panel" style="padding-left:4px;border-bottom:0px;">
+	<div style="height:2px;"></div>
+	<form id="searchForm">
+			菜单名称：<input name="menuname" >
+	图标：<input name="icon" >
+	URL：<input name="url" >
+	上级菜单ID：<input name="pid" >
+
+		<button type="button" id="btnSearch">查询</button>
+	</form>
+	<div style="height:2px;"></div>
+</div>
+<table id="grid"></table>
+
+<div id="editDlg">
+	<form id="editForm">
+
+		<table>
+			<tr>
+				<td>菜单ID</td><td><input name="menuid"> </td>
+			</tr>
+						<tr>
+				<td>菜单名称</td><td><input name="menuname"> </td>
+			</tr>
+			<tr>
+				<td>图标</td><td><input name="icon"> </td>
+			</tr>
+			<tr>
+				<td>URL</td><td><input name="url"> </td>
+			</tr>
+			<tr>
+				<td>上级菜单ID</td><td><input name="pid"> </td>
+			</tr>
+
+		</table>
+		<button id="btnSave" type="button">保存</button>
+	</form>
+</div>
+
+</body>
+</html>

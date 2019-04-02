@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 开启注解 -->
+    <context:annotation-config/>
+
+    <!--部门相关的bean配置-->
+    <bean id="DepAction" class="com.zf.erp.action.DepAction" scope="prototype"/>
+
+    <!--员工相关的bean配置-->
+    <bean id="EmpAction" class="com.zf.erp.action.EmpAction" scope="prototype"/>
+
+    <!--商品列表bean配置-->
+    <bean id="GoodsAction" class="com.zf.erp.action.GoodsAction" scope="prototype"/>
+
+    <!--商品类型列表bean配置-->
+    <bean id="GoodsTypeAction" class="com.zf.erp.action.GoodsTypeAction" scope="prototype"/>
+
+    <!--菜单bean配置-->
+    <bean id="MenuAction" class="com.zf.erp.action.MenuAction" scope="prototype"/>
+
+    <!--登录bean配置-->
+    <bean id="LoginAction" class="com.zf.erp.action.LoginAction" scope="prototype"/>
+
+    <!--供应商客户bean-->
+    <bean id="SupplierAction" class="com.zf.erp.action.SupplierAction" scope="prototype"/>
+
+    <!--订单 bean配置-->
+    <bean id="OrdersAction" class="com.zf.erp.action.OrdersAction" scope="prototype"/>
+
+    <!--仓库 bean配置-->
+    <bean id="StoreAction" class="com.zf.erp.action.StoreAction" scope="prototype"/>
+
+    <!--订单明细配置-->
+    <bean id="OrderdetailAction" class="com.zf.erp.action.OrderdetailAction" scope="prototype"/>
+
+    <!--仓库明细配置-->
+    <bean id="StoredetailAction" class="com.zf.erp.action.StoredetailAction" scope="prototype"/>
+
+    <!--仓库变更记录配置-->
+    <bean id="StoreoperAction" class="com.zf.erp.action.StoreoperAction" scope="prototype"/>
+
+    <!--退货订单配置-->
+    <bean id="ReturnordersAction" class="com.zf.erp.action.ReturnordersAction" scope="prototype"/>
+
+    <!-- 退货订单明细配置 -->
+    <bean id="ReturnorderdetailAction" class="com.zf.erp.action.ReturnorderdetailAction" scope="prototype"/>
+
+    <!-- 盘盈盘亏配置 -->
+    <bean id="InventoryAction" class="com.zf.erp.action.InventoryAction" scope="prototype"/>
+
+    <!-- 统计报表配置 -->
+    <bean id="ReportAction" class="com.zf.erp.action.ReportAction" scope="prototype"/>
+
+    <import resource="applicationContext_Biz.xml"/>
+    <import resource="applicationContext_aop.xml"/>
+    <import resource="applicationContext_shiro.xml"/>
+</beans>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--部门bean-->
+    <bean id="DepDao" class="com.zf.erp.dao.Impl.DepDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--员工bean-->
+    <bean id="EmpDao" class="com.zf.erp.dao.Impl.EmpDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+    <!--商品bean-->
+    <bean id="GoodsDao" class="com.zf.erp.dao.Impl.GoodsDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--商品列表bean-->
+    <bean id="GoodsTypeDao" class="com.zf.erp.dao.Impl.GoodsTypeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--菜单数据bean-->
+    <bean id="MenuDao" class="com.zf.erp.dao.Impl.MenuDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--供应商/客户bean-->
+    <bean id="SupplierDao" class="com.zf.erp.dao.Impl.SupplierDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--订单bean-->
+    <bean id="OrdersDao" class="com.zf.erp.dao.Impl.OrdersDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--商品仓库bean-->
+    <bean id="StoreDao" class="com.zf.erp.dao.Impl.StoreDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--订单明细bean-->
+    <bean id="OrderdetailDao" class="com.zf.erp.dao.Impl.OrderdetailDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--仓库明细bean-->
+    <bean id="StoredetailDao" class="com.zf.erp.dao.Impl.StoredetailDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--库存变更记录bean-->
+    <bean id="StoreoperDao" class="com.zf.erp.dao.Impl.StoreoperDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--退货订单bean-->
+    <bean id="ReturnordersDao" class="com.zf.erp.dao.Impl.ReturnordersDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--退货订单明细bean-->
+    <bean id="ReturnorderdetailDao" class="com.zf.erp.dao.Impl.ReturnorderdetailDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--盘盈盘亏bean-->
+    <bean id="InventoryDao" class="com.zf.erp.dao.Impl.InventoryDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--统计报表bean-->
+    <bean id="ReportDao" class="com.zf.erp.dao.Impl.ReportDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+</beans>
